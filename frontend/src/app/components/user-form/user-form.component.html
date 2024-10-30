@@ -1,0 +1,21 @@
+<div class="add-user-container-wrapper" style="padding: 20px 50px">
+  <div class="add-user-container">
+    <form [formGroup]="userForm" (ngSubmit)="isEditUserForm ? editUser() : addUser()">
+      <input type="text" placeholder="Name" formControlName="name" />
+      <input type="number" placeholder="Age" formControlName="age" />
+      <input type="text" placeholder="Date of Birth" formControlName="dob" />
+      <input type="text" placeholder="Address" formControlName="address" />
+      <button
+        mat-flat-button
+        style="
+          margin-right: 20px;
+          background-color: rgb(34, 0, 128);
+          color: #fff;
+        "
+        type="submit"
+      >
+        {{isEditUserForm ? 'Edit User' : 'Add User'}}
+      </button>
+    </form>
+  </div>
+</div>

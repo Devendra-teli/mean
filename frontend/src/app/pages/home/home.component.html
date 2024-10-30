@@ -1,0 +1,46 @@
+<div class="home-container" style="padding: 30px">
+  <div style="display: flex; justify-content: flex-end; margin: 10px">
+    <button
+      mat-flat-button
+      style="background-color: rgb(15, 5, 153); color: #fff"
+      routerLink="/user/add"
+    >
+      Add User
+    </button>
+  </div>
+  <table>
+    <tr>
+      <th>S.No</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Date Of Birth</th>
+      <th>Address</th>
+      <th>Actions</th>
+    </tr>
+    @for (item of data; track $index; let i = $index) {
+    <tr>
+      <td>{{ i + 1 }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.age }}</td>
+      <td>{{ item.dob }}</td>
+      <td>{{ item.address }}</td>
+      <td class="action-container">
+        <button
+          mat-flat-button
+          style="margin-right: 20px; background-color: green"
+          [routerLink]="['/user/edit',item._id]"
+        >
+          Edit
+        </button>
+        <button
+          mat-flat-button
+          style="background-color: red"
+          (click)="deleteUser(item._id)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+    }
+  </table>
+</div>
